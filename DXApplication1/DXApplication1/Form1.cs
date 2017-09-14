@@ -29,5 +29,8 @@ namespace DXApplication1
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
 
+
+
+
     }
 }
