@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.InteropServices;
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
@@ -17,7 +18,11 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             backgroundWorker1.WorkerReportsProgress = true;//报告完成进度
             backgroundWorker1.WorkerSupportsCancellation = true;//允许用户终止后台线程
+            MouseReleaseCapture();//移动无边框窗体
+     
         }
+
+      
 
         private void Rundowork(object sender, DoWorkEventArgs e)
         {
@@ -67,5 +72,30 @@ namespace WindowsFormsApplication1
             
             return true;
         }
+
+        #region 移动无边窗口
+        private void MouseReleaseCapture()
+        {
+
+            this.MouseDown += new MouseEventHandler(OnMouseDown);
+            foreach (System.Windows.Forms.Control ctl in Controls)
+                ctl.MouseDown += new MouseEventHandler(OnMouseDown);
+        }
+        void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle.ToInt32(), 0x0112, 0xF012, 0);
+            }
+        }
+
+        [DllImport("User32.dll", EntryPoint = "ReleaseCapture")]
+        public static extern int ReleaseCapture();
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        public static extern int SendMessage(int hWnd, int Msg, int wParam, int lParam);
+
+
+        #endregion
     }
 }
