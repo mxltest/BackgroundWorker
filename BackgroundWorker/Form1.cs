@@ -19,11 +19,11 @@ namespace WindowsFormsApplication1
             backgroundWorker1.WorkerReportsProgress = true;//报告完成进度
             backgroundWorker1.WorkerSupportsCancellation = true;//允许用户终止后台线程
             MouseReleaseCapture();//移动无边框窗体
-     
+            Start();
+           
         }
 
-      
-
+       
         private void Rundowork(object sender, DoWorkEventArgs e)
         {
           
@@ -47,13 +47,14 @@ namespace WindowsFormsApplication1
             label1.Text = "finish";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Start()
         {
             label1.Text = "start";
             backgroundWorker1.RunWorkerAsync(100);//触发DoWorker事件
            // backgroundWorker1.ReportProgress(100); // 触发bgw.ProgressChanged事件  e.ProgressPercentage和e.UserState注意本方法使用前,需要将bgw的WorkerReportsProgress值设为true,否则将不会触发事件.
             //backgroundWorker1.CancelAsync();//将CancellationPending 值设为true 注意本方法使用前,需要将bgw的WorkerSupportsCancellation 值设为true,否则将不起作用.
         }
+
         bool ListNumber(object sender, DoWorkEventArgs e)
         {
             int num = (int)e.Argument;//接收传入的参数

@@ -43,18 +43,17 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(208, 86);
+            this.button1.Location = new System.Drawing.Point(192, 63);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 38);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(196, 178);
+            this.label1.Location = new System.Drawing.Point(216, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 1;
@@ -62,15 +61,15 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(137, 242);
+            this.progressBar1.Location = new System.Drawing.Point(3, 107);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(266, 23);
+            this.progressBar1.Size = new System.Drawing.Size(493, 23);
             this.progressBar1.TabIndex = 2;
             this.progressBar1.Value = 6;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 93);
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 12);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(109, 21);
             this.dateTimePicker1.TabIndex = 3;
@@ -79,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 366);
+            this.ClientSize = new System.Drawing.Size(499, 132);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
