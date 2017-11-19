@@ -20,9 +20,7 @@ namespace WindowsFormsApplication1
             backgroundWorker1.WorkerSupportsCancellation = true;//允许用户终止后台线程
             MouseReleaseCapture();//移动无边框窗体
             Start();
-           
         }
-
        
         private void Rundowork(object sender, DoWorkEventArgs e)
         {
@@ -96,7 +94,17 @@ namespace WindowsFormsApplication1
         [DllImport("User32.dll", EntryPoint = "SendMessage")]
         public static extern int SendMessage(int hWnd, int Msg, int wParam, int lParam);
 
-
         #endregion
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+           if ( progressBar1.Value==100)
+           {
+               timer1.Enabled = false;
+                MainForm MainForm = new WindowsFormsApplication1.MainForm();
+                MainForm.Show();
+                this.Hide();
+           }
+        }
     }
 }
